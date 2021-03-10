@@ -26,5 +26,12 @@ namespace PrimeAPI.Controllers
         {
             return _repo.IsPrimeNumber(input);
         }
+
+        [HttpGet]
+        [Route("{start}={end}")]
+        public string CountPrimeNumbers(string start, string end)
+        {
+            return _repo.CountPrimes(start, end);
+        }
     }
 }

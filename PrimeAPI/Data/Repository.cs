@@ -1,4 +1,7 @@
-﻿namespace PrimeAPI.Data
+﻿using System;
+using System.Collections.Generic;
+
+namespace PrimeAPI.Data
 {
     public class Repository : IRepository
     {
@@ -15,6 +18,31 @@
                 }
 
             return isPrime;
+        }
+
+        public string CountPrimes(string start, string end)
+        {
+            int startNumber = int.Parse(start);
+            int endNumber = Convert.ToInt32(end);
+            var primeNumbers = new List<int>();
+
+            for (int i = startNumber; i <= endNumber; i++)
+            {
+                int counter = 0;
+                for (int j = 2; j <= i / 2; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        counter++;
+                        break;
+                    }
+                }
+                if(counter == 0 && i != 1)
+                {
+                    primeNumbers.Add(i);
+                }
+            }
+            return primeNumbers.Count.ToString();
         }
     }
 }
