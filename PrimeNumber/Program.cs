@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 
 namespace PrimeNumber
 {
@@ -41,7 +42,20 @@ namespace PrimeNumber
         {
             Console.Clear();
             Console.WriteLine("Enter a number to check if prime:");
-            string number = (Console.ReadLine());           
+            string number = (Console.ReadLine());
+            /* RestClient c = new RestClient();
+             c.BaseUrl = new Uri("https://localhost:44361/primes/");
+             var request = new RestRequest(number.ToString(), Method.GET);
+             var response = c.Execute(request);
+             var isPrime = response.Content.ToString();
+             if (isPrime == "true")
+             {
+                 Console.WriteLine("Is Prime");
+             }
+             else
+             {
+                 Console.WriteLine("Is not Prime");
+             } */
             Console.ReadLine();
         }
 
