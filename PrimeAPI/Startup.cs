@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PrimeAPI.Data;
 
 namespace PrimeAPI
 {
@@ -28,6 +29,7 @@ namespace PrimeAPI
         {
 
             services.AddControllers();
+            services.AddScoped<IRepository, Repository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PrimeAPI", Version = "v1" });
