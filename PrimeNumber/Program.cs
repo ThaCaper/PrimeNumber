@@ -41,22 +41,30 @@ namespace PrimeNumber
         private static void isPrime()
         {
             Console.Clear();
-            Console.WriteLine("Enter a number to check if prime:");
-            string number = (Console.ReadLine());
-            /* RestClient c = new RestClient();
-             c.BaseUrl = new Uri("https://localhost:44361/primes/");
-             var request = new RestRequest(number.ToString(), Method.GET);
-             var response = c.Execute(request);
-             var isPrime = response.Content.ToString();
-             if (isPrime == "true")
-             {
-                 Console.WriteLine("Is Prime");
-             }
-             else
-             {
-                 Console.WriteLine("Is not Prime");
-             } */
-            Console.ReadLine();
+            Console.WriteLine("Enter a number to check if prime: Type Quit to Quit.");
+            string number;
+            while ((number = Console.ReadLine()) != "Quit") 
+            {
+                var isPrime = getPrime(number);
+                if (isPrime == "true")
+                {
+                    Console.WriteLine("Is Prime" + " " + number);
+                }
+                else
+                {
+                    Console.WriteLine("Is not Prime" + " " + number);
+                }
+            }
+        }
+
+        private static string getPrime(string number)
+        {
+            RestClient c = new RestClient();
+            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            var request = new RestRequest(number.ToString(), Method.GET);
+            var response = c.Execute(request);
+            var isPrime = response.Content.ToString();
+            return isPrime;
         }
 
         private static void countPrimes()
