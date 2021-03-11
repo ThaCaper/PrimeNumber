@@ -41,33 +41,65 @@ namespace PrimeNumber
         private static void isPrime()
         {
             Console.Clear();
-            Console.WriteLine("Enter a number to check if prime:");
-            string number = (Console.ReadLine());
-            /* RestClient c = new RestClient();
-             c.BaseUrl = new Uri("https://localhost:44361/primes/");
-             var request = new RestRequest(number.ToString(), Method.GET);
-             var response = c.Execute(request);
-             var isPrime = response.Content.ToString();
-             if (isPrime == "true")
-             {
-                 Console.WriteLine("Is Prime");
-             }
-             else
-             {
-                 Console.WriteLine("Is not Prime");
-             } */
-            Console.ReadLine();
+            Console.WriteLine("Enter a number to check if prime: Type Quit to Quit.");
+            string number;
+            while ((number = Console.ReadLine()) != "Quit") 
+            {
+                var isPrime = getPrime(number);
+                if (isPrime == "true")
+                {
+                    Console.WriteLine("Is Prime" + " " + number);
+                }
+                else
+                {
+                    Console.WriteLine("Is not Prime" + " " + number);
+                }
+            }
         }
 
         private static void countPrimes()
         {
             Console.Clear();
-            Console.WriteLine("Enter two numbers to get primes between the numbers:");
-            Console.Write("Enter The Start Number: ");
-            string startNumber = (Console.ReadLine());
-            Console.Write("Enter the End Number : ");
-            string endNumber = (Console.ReadLine());
-            Console.ReadLine();
+            Console.WriteLine("Enter two numbers to get primes between the numbers: Type q to Quit");
+            while (true) 
+            {
+                string startNumber;
+                string endNumber;
+                Console.Write("Enter The Start Number:");
+                startNumber = (Console.ReadLine());
+                if (startNumber.Contains("q"))
+                {
+                    break;
+                }
+                Console.Write("Enter the End Number : ");
+                endNumber = (Console.ReadLine());
+                if (endNumber.Contains("q"))
+                {
+                    break;
+                }
+                var NumOfPrims = getPrimes(startNumber, endNumber);
+                Console.WriteLine("Number of primes between:" + " " + startNumber + " " + endNumber + " = " + NumOfPrims);
+            }
+        }
+
+        private static string getPrime(string number)
+        {
+            RestClient c = new RestClient();
+            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            var request = new RestRequest(number.ToString(), Method.GET);
+            var response = c.Execute(request);
+            var isPrime = response.Content.ToString();
+            return isPrime;
+        }
+
+        private static string getPrimes(string startNumber, string endNumber)
+        {
+            RestClient c = new RestClient();
+            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            var request = new RestRequest("{entity}={entity1}").AddUrlSegment("entity", startNumber).AddUrlSegment("entity1", endNumber);
+            var response = c.Execute(request);
+            var numberOfPrimes = response.Content.ToString();
+            return numberOfPrimes;
         }
     }
 }
