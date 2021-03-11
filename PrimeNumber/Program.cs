@@ -70,15 +70,27 @@ namespace PrimeNumber
         private static void countPrimes()
         {
             Console.Clear();
-            Console.WriteLine("Enter two numbers to get primes between the numbers:");
-            Console.Write("Enter The Start Number:");
-            string startNumber = (Console.ReadLine());
-            Console.Write("Enter the End Number : ");
-            string endNumber = (Console.ReadLine());
-            var NumOfPrims = getPrimes(startNumber, endNumber);
-            Console.WriteLine("Number of primes between:" + " " + startNumber + " " + endNumber + " = " + NumOfPrims);
-        }
-
+            Console.WriteLine("Enter two numbers to get primes between the numbers: Type q to Quit");
+            while (true) 
+            {
+                string startNumber;
+                string endNumber;
+                Console.Write("Enter The Start Number:");
+                startNumber = (Console.ReadLine());
+                if (startNumber.Contains("q"))
+                {
+                    break;
+                }
+                Console.Write("Enter the End Number : ");
+                endNumber = (Console.ReadLine());
+                if (endNumber.Contains("q"))
+                {
+                    break;
+                }
+                var NumOfPrims = getPrimes(startNumber, endNumber);
+                Console.WriteLine("Number of primes between:" + " " + startNumber + " " + endNumber + " = " + NumOfPrims);
+            }
+        }        
         private static string getPrimes(string startNumber, string endNumber)
         {
             RestClient c = new RestClient();
