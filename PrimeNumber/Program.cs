@@ -71,11 +71,22 @@ namespace PrimeNumber
         {
             Console.Clear();
             Console.WriteLine("Enter two numbers to get primes between the numbers:");
-            Console.Write("Enter The Start Number: ");
+            Console.Write("Enter The Start Number:");
             string startNumber = (Console.ReadLine());
             Console.Write("Enter the End Number : ");
             string endNumber = (Console.ReadLine());
-            Console.ReadLine();
+            var NumOfPrims = getPrimes(startNumber, endNumber);
+            Console.WriteLine("Number of primes between:" + " " + startNumber + " " + endNumber + " = " + NumOfPrims);
+        }
+
+        private static string getPrimes(string startNumber, string endNumber)
+        {
+            RestClient c = new RestClient();
+            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            var request = new RestRequest("{entity}={entity1}").AddUrlSegment("entity", startNumber).AddUrlSegment("entity1", endNumber);
+            var response = c.Execute(request);
+            var numberOfPrimes = response.Content.ToString();
+            return numberOfPrimes;
         }
     }
 }
