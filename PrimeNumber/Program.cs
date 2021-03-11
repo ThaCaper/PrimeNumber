@@ -57,16 +57,6 @@ namespace PrimeNumber
             }
         }
 
-        private static string getPrime(string number)
-        {
-            RestClient c = new RestClient();
-            c.BaseUrl = new Uri("https://localhost:44361/primes/");
-            var request = new RestRequest(number.ToString(), Method.GET);
-            var response = c.Execute(request);
-            var isPrime = response.Content.ToString();
-            return isPrime;
-        }
-
         private static void countPrimes()
         {
             Console.Clear();
@@ -90,7 +80,18 @@ namespace PrimeNumber
                 var NumOfPrims = getPrimes(startNumber, endNumber);
                 Console.WriteLine("Number of primes between:" + " " + startNumber + " " + endNumber + " = " + NumOfPrims);
             }
-        }        
+        }
+
+        private static string getPrime(string number)
+        {
+            RestClient c = new RestClient();
+            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            var request = new RestRequest(number.ToString(), Method.GET);
+            var response = c.Execute(request);
+            var isPrime = response.Content.ToString();
+            return isPrime;
+        }
+
         private static string getPrimes(string startNumber, string endNumber)
         {
             RestClient c = new RestClient();
