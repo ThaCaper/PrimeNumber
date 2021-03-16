@@ -85,7 +85,7 @@ namespace PrimeNumber
         private static string getPrime(string number)
         {
             RestClient c = new RestClient();
-            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            c.BaseUrl = new Uri("https://localhost:44391/");
             var request = new RestRequest(number.ToString(), Method.GET);
             var response = c.Execute(request);
             var isPrime = response.Content.ToString();
@@ -95,7 +95,7 @@ namespace PrimeNumber
         private static string getPrimes(string startNumber, string endNumber)
         {
             RestClient c = new RestClient();
-            c.BaseUrl = new Uri("https://localhost:44361/primes/");
+            c.BaseUrl = new Uri("https://localhost:44391/");
             var request = new RestRequest("{entity}={entity1}").AddUrlSegment("entity", startNumber).AddUrlSegment("entity1", endNumber);
             var response = c.Execute(request);
             var numberOfPrimes = response.Content.ToString();
