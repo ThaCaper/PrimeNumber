@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharedModels
 {
-    interface IGetPrimeData
+    public interface IGetPrimeData
     {
         /**
          * Should return only one instance of the Prime entity with the result
@@ -12,6 +12,7 @@ namespace SharedModels
          * If the input is not in the DB return a message stating that no data was found.
          */
         Prime GetByInput(int input);
+        
         /**
          * Should return a list of prime entity with all the relevant data from the DB table.
          * If an error occurs a message should be returned instead.
@@ -23,9 +24,10 @@ namespace SharedModels
          * If no such range exist in the DB, return a message stating that no data was found.
          */
         PrimeRange GetBySingleRange(int input1, int input2);
+        
         /**
          * Should return a list of the PrimeRange entity with all the data form the relevant DB table.
-         * If an error occurs a message should be returned instad.
+         * If an error occurs a message should be returned instead.
          */
         List<PrimeRange> GetAllRanges();
 
