@@ -2,6 +2,7 @@
 using PrimeDataHelper.Models;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 
 namespace PrimeNumber
 {
@@ -70,7 +71,13 @@ namespace PrimeNumber
 
         private static void getAllPrimes()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            List<Prime> allprime = gpd.GetAllSingleInput();
+
+            foreach (var primes in allprime)
+            {
+                Console.WriteLine(primes.Input.ToString() +" - "+ primes.IsPrime.ToString());
+            }
         }
 
         private static void getSinglePrime()
