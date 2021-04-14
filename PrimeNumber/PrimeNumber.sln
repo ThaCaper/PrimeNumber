@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadBalancer", "..\LoadBala
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeAPIClone", "..\PrimeAPIClone\PrimeAPIClone.csproj", "{9DD4F560-F520-4F21-9F17-43479CF015DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "..\SharedModels\SharedModels.csproj", "{00276FCC-650A-46D8-99B4-B7B3C53865F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedModels", "..\SharedModels\SharedModels.csproj", "{00276FCC-650A-46D8-99B4-B7B3C53865F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeDataHelper", "..\PrimeDataHelper\PrimeDataHelper.csproj", "{48B02E92-4622-4BCB-8A5A-28A364F5C493}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{00276FCC-650A-46D8-99B4-B7B3C53865F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00276FCC-650A-46D8-99B4-B7B3C53865F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00276FCC-650A-46D8-99B4-B7B3C53865F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B02E92-4622-4BCB-8A5A-28A364F5C493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B02E92-4622-4BCB-8A5A-28A364F5C493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B02E92-4622-4BCB-8A5A-28A364F5C493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B02E92-4622-4BCB-8A5A-28A364F5C493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
