@@ -20,6 +20,10 @@ namespace PrimeNumber
             Console.WriteLine("Choose an option:");
             Console.WriteLine("1) Is Prime");
             Console.WriteLine("2) Count Primes");
+            Console.WriteLine("3) Get single prime");
+            Console.WriteLine("4) Get all primes");
+            Console.WriteLine("5) Get single prime range");
+            Console.WriteLine("6) Get all prime ranges");
             Console.Write("\r\nSelect an option: ");
 
             switch (Console.ReadLine()) 
@@ -31,11 +35,43 @@ namespace PrimeNumber
                     countPrimes();
                     return true;
                 case "3":
+                    getSinglePrime();
+                    return true;
+                case "4":
+                    getAllPrimes();
+                    return true;
+                case "5":
+                    getSingleRange();
+                    return true;
+                case "6":
+                    getAllRanges();
+                    return true;
+                case "7":
                     return false;
                 default:
                     return true;
             }
             
+        }
+
+        private static void getAllRanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void getSingleRange()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void getAllPrimes()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void getSinglePrime()
+        {
+            throw new NotImplementedException();
         }
 
         private static void isPrime()
