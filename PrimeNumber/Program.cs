@@ -66,7 +66,14 @@ namespace PrimeNumber
 
         private static void getSingleRange()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Enter input 1");
+            int input1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter input 2");
+            int input2 = int.Parse(Console.ReadLine());
+            PrimeRange res = gpd.GetBySingleRange(input1, input2);
+            Console.WriteLine(res.Input1.ToString() + " " + res.Input2.ToString() + " " + res.NumOfPrimes.ToString() + " " + res.Occurrences.ToString());
+            Console.ReadLine();
         }
 
         private static void getAllPrimes()
@@ -86,9 +93,8 @@ namespace PrimeNumber
             Console.WriteLine("Enter a number");
             int input = int.Parse(Console.ReadLine());
             Prime res = gpd.GetByInput(input);
-            Console.WriteLine(res.Input.ToString() + res.IsPrime.ToString() + res.Occurrences.ToString());
+            Console.WriteLine(res.Input.ToString() + " " + res.IsPrime.ToString() + " " + res.Occurrences.ToString());
             Console.ReadLine();
-
         }
 
         private static void isPrime()
