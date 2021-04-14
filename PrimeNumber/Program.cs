@@ -1,10 +1,14 @@
-﻿using RestSharp;
+﻿using PrimeDataHelper;
+using PrimeDataHelper.Models;
+using RestSharp;
 using System;
 
 namespace PrimeNumber
 {
     class Program
     {
+        private static PrimeDBContext con = new PrimeDBContext();
+        private static GetPrimeData gpd = new GetPrimeData(con);
         static void Main(string[] args)
         {
             bool showMenu = true;
@@ -71,7 +75,13 @@ namespace PrimeNumber
 
         private static void getSinglePrime()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Enter a number");
+            int input = int.Parse(Console.ReadLine());
+            Prime res = gpd.GetByInput(input);
+            Console.WriteLine(res.Input.ToString() + res.IsPrime.ToString() + res.Occurrences.ToString());
+            Console.ReadLine();
+
         }
 
         private static void isPrime()
