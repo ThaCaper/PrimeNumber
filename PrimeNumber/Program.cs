@@ -61,7 +61,12 @@ namespace PrimeNumber
 
         private static void getAllRanges()
         {
-            throw new NotImplementedException();
+            List<PrimeRange> res = gpd.GetAllRanges();
+            foreach (var PrimeRange in res)
+            {
+                Console.WriteLine(PrimeRange.Input1.ToString() + " " + PrimeRange.Input2.ToString() + " " + PrimeRange.NumOfPrimes.ToString() + " " + PrimeRange.Occurrences.ToString());
+            }
+            Console.ReadLine();
         }
 
         private static void getSingleRange()
@@ -85,6 +90,7 @@ namespace PrimeNumber
             {
                 Console.WriteLine(primes.Input.ToString() +" - "+ primes.IsPrime.ToString());
             }
+            Console.ReadLine();
         }
 
         private static void getSinglePrime()
